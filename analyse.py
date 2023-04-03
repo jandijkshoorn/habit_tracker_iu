@@ -11,3 +11,8 @@ def calculate_count(db, tracker):
     """
     data = get_tracker_data(db, tracker)
     return len(data)
+
+def get_tracker_names(db):
+    cur = db.cursor()
+    cur.execute("SELECT DISTINCT trackerName FROM counter")
+    return cur.fetchall()
